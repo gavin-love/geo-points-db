@@ -37,7 +37,7 @@ gem 'json', '>= 2.0.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'pry'
-gem 'active_model_serializers', '0.10
+gem 'active_model_serializers', '0.10'
 
 
 group :development, :test do

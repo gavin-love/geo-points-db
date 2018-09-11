@@ -9,7 +9,9 @@ class Api::V1::Users::LocationsController < ApplicationController
       if distance < 20
         user_company = user.points(company)
         user_company.points += 1
+        user_company.save
       end
+      render json: user, status: 200
     end
 
     private

@@ -15,7 +15,6 @@ class YelpPresenter
 
   def business
     json = YelpService.new(company).data
-    binding.pry
     business_info = json[:businesses][0]
     company.image_url = business_info[:image_url]
     company.save

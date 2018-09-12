@@ -6,7 +6,7 @@ module Api::V1
       company = Company.first
       # CoordService.new(company).latlng
       YelpPresenter.new(company).business
-      render json: company, status: 204
+      render json: company, status: 200
     end
 
     private

@@ -1,8 +1,13 @@
 module Api::V1
   class CompaniesController < ApplicationController
+    skip_before_action :verify_authenticity_token
     def create
-      company = Company.create(company_params)
-      CoordService.new(company).latlng
+      binding.pry
+      # company = Company.create(company_params)
+      binding.pry
+      company = Company.first
+      # CoordService.new(company).latlng
+      YelpService.new(company).info
     end
 
     private

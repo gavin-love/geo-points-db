@@ -2,14 +2,11 @@ class Api::V1::Users::LocationsController < ApplicationController
   
     skip_before_action :verify_authenticity_token
     def create
-      user = User.first
-      company = Company.first
+      user = User.find(params[:user_id])
+      companies = Company.all
       user_location = params[:location]
-      distance = Distance.new(company, user_location).distance
-      if distance < 20
-        user_company = user.points(company)
-        user_company.points += 1
-        user_company.save
+      companies.each do |company|
+        user.check_for_points(user, user_location, company)
       end
       render json: user, status: 200
     end
